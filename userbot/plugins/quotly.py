@@ -40,13 +40,3 @@ async def _(event):
           else: 
              await event.delete()   
              await bot.send_file(event.chat_id, response.message)
-
-
-add_help_item(
-    "quotly",
-    "Fun",
-    "Enhance yout text to sticker.",
-    """
-    `.qu`
-    """
-)
