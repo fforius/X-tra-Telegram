@@ -6,7 +6,6 @@ from telethon import events
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl.functions.account import UpdateNotifySettingsRequest
 
-from ..help import add_help_item
 from userbot import bot
 from userbot.events import register
 
