@@ -1,15 +1,15 @@
 """Download & Upload Images on Telegram
-Syntax: .img <Name>"""
+Syntax: .imgg <Name>"""
 
 
-from google_images_download import google_images_download
+from userbot.google_images_download import googleimagesdownload
 import os
 import shutil
 from re import findall
 from userbot.utils import admin_cmd
 
 
-@borg.on(admin_cmd("img ?(.*)"))
+@borg.on(admin_cmd("imgg ?(.*)"))
 async def img_sampler(event):
     await event.edit("Processing...")
     query = event.pattern_match.group(1)
@@ -20,7 +20,7 @@ async def img_sampler(event):
         query = query.replace("lim=" + lim[0], "")
     except IndexError:
         lim = 2
-    response = google_images_download.googleimagesdownload()
+    response = googleimagesdownload()
 
     # creating list of arguments
     arguments = {
