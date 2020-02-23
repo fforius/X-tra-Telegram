@@ -1,5 +1,5 @@
 """AFK Plugin for @UniBorg
-Syntax: .afkk REASON"""
+Syntax: .afq REASON"""
 import asyncio
 import datetime
 from telethon import events
@@ -60,10 +60,14 @@ async def set_not_afk(event):
         recvd_messages = {}
 
 
-@borg.on(admin_cmd("afkk ?((.|\n)*)"))  # pylint:disable=E0602
+@borg.on(admin_cmd("afq ?((.|\n)*)"))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return
+    global USER_AFK  # pylint:disable=E0602
+    global afk_time  # pylint:disable=E0602
+    global last_afk_message  # pylint:disable=E0602
+    global reason
     reason = event.pattern_match.group(1)
     if not USER_AFK:  # pylint:disable=E0602
         last_seen_status = await borg(  # pylint:disable=E0602
@@ -97,6 +101,10 @@ async def _(event):
 async def on_afk(event):
     if event.fwd_from:
         return
+    global USER_AFK  # pylint:disable=E0602
+    global afk_time  # pylint:disable=E0602
+    global last_afk_message  # pylint:disable=E0602
+    global reason
     recvd_messages[event.chat_id] = event.message
     afk_since = "**a while ago**"
     current_message_text = event.message.message.lower()
