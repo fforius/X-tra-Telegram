@@ -8,10 +8,10 @@ from telethon.utils import resolve_id
 from uniborg.util import admin_cmd
 
 
-global USER_AFK = {}  # pylint:disable=E0602
-global afk_time = None  # pylint:disable=E0602
-global last_afk_message = {}  # pylint:disable=E0602
-global recvd_messages = {}  # pylint:disable=E0602
+global USER_AFK # pylint:disable=E0602
+global afk_time # pylint:disable=E0602
+global last_afk_message # pylint:disable=E0602
+global recvd_messages # pylint:disable=E0602
 
 
 @borg.on(events.NewMessage(outgoing=True))  # pylint:disable=E0602
