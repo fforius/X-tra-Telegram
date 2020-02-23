@@ -1,5 +1,5 @@
 """AFK Plugin for @UniBorg
-Syntax: .afk REASON"""
+Syntax: .afkk REASON"""
 import asyncio
 import datetime
 from telethon import events
