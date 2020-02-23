@@ -1,11 +1,11 @@
 """AFK Plugin for @UniBorg
-Syntax: .afk REASON"""
+Syntax: .afq REASON"""
 import asyncio
 import datetime
 from telethon import events
 from telethon.tl import functions, types
 from telethon.utils import resolve_id
-from uniborg.util import admin_cmd
+from userbot.util import admin_cmd
 
 
 borg.storage.USER_AFK = {}  # pylint:disable=E0602
@@ -60,7 +60,7 @@ async def set_not_afk(event):
         borg.storage.recvd_messages = {}
 
 
-@borg.on(admin_cmd("afk ?((.|\n)*)"))  # pylint:disable=E0602
+@borg.on(admin_cmd("afq ?((.|\n)*)"))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return
