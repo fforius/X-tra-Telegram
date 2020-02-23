@@ -41,7 +41,7 @@ async def _(event):
             "`Connecting To Telegram Headquarters...`",
             "`Call Connected.`",
             "`Telegram: Hello This is Telegram HQ. Who is this?`",
-            "`Me: Yo this is` @apaloeliat ,`Please Connect me to my lil bro, Carl Johnson`",
+            "`Me: Yo this is` Poco ,`Please Connect me to my lil bro, Carl Johnson`",
             "`User Authorised.`",
             "`Calling Carl Johnson`  `At +916969696969`",
             "`Private  Call Connected...`",
@@ -54,7 +54,7 @@ async def _(event):
             "`Me: Is There Any Issue/Emergency???`",
             "`CJ: Yes Sur, There Is A Bug In Telegram v69.6.9.\nI Am Not Able To Fix It. If Possible, Please Help Fix The Bug.`",
             "`Me: Send Me The App On My Telegram Account, I Will Fix The Bug & Send You.`",
-            "`Pavel: Sure Sur \nTC Bye Bye :)`",
+            "`CJ: Sure Sur \nTC Bye Bye :)`",
             "`Private Call Disconnected.`"
         ]
 
