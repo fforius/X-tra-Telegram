@@ -47,7 +47,7 @@ async def _(event):
     me = borg.me
     userid = event.from_id
     packname = f"@apaloeliat pack {userid}"
-    packshortname = f"Anubis_ki_gufa_me_{userid}"  # format: Uni_Borg_userid
+    packshortname = f"Montamantoel_{userid}"  # format: Uni_Borg_userid
 
     is_a_s = is_it_animated_sticker(reply_message)
     file_ext_ns_ion = "@UniBorg_Sticker.png"
