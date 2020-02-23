@@ -1,4 +1,3 @@
-from ..help import add_help_item
 from userbot.events import register
 
 PENIS_TEMPLATE = """
