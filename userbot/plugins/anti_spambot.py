@@ -14,7 +14,7 @@ from telethon.tl.types import ChannelParticipantsAdmins, Message
 from userbot import BOTLOG, BOTLOG_CHATID, CMD_HELP, ANTI_SPAMBOT, ANTI_SPAMBOT_SHOUT, bot
 
 
-@bot.on(events.ChatAction())
+@bot.on(ChatAction)
 async def ANTI_SPAMBOT(welcm):
     try:
         ''' Ban a recently joined user if it
