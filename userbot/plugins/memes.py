@@ -406,7 +406,7 @@ RAPE_STRINGS = [
      "`Don't rape too much bossdk, else problem....`",
      "`Tu sasti rendi hai Sabko pta hai😂`",
      "`Lodu Andha hai kya Yaha tera rape ho raha hai aur tu abhi tak yahi gaand mara raha hai lulz`",
-] 
+]
 ABUSE_STRINGS = [
 	   "`Chutiya he rah jaye ga`",
 	   "`Ja be Gaandu`",
@@ -443,7 +443,7 @@ CHU_STRINGS = [
      "`Taare hai Asmaan me very very bright jaat na jla bskd dekh le apni hight.`",
      "`jindagi ki na toote lari iski lulli hoti nhi khadi`",
      "`Kbhi kbhi meri dil me khyaal ata hai ayse chutiyo ko kon paida kr jata hai😂.`",
-     "`Saawan ka mahina pawan kare shor jake gand mara bskd kahi aur.`", 
+     "`Saawan ka mahina pawan kare shor jake gand mara bskd kahi aur.`",
      "`Dil ke armaa ansuon me beh jaye tum bskd ke chutiye hi reh gye.`",
      "`Ishq Se Tabiyat Ne Zeest Ka Mazaa aya maine is lodu ko randi khane me paya.`",
      "`Mirza galib ki yeh khani hai tu bhosdika hai yeh sab ki jubani hai.`",
@@ -458,7 +458,7 @@ FUK_STRINGS = [
    "`Aaisi Londiya Chodiye, L*nd Ka Aapa Khoye, Auro Se Chudi Na Ho, Biwi Wo Hi Hoye`",
    "`Nachoo Bhosdike Nachoo`",
    "`Jinda toh jaat ke baal bhi hai`",
-   "`Sab ko pta tu randi ka baccha hai (its just a joke)`", 
+   "`Sab ko pta tu randi ka baccha hai (its just a joke)`",
 ]
 THANOS_STRINGS = [
      "`Mashoor Rand, Ne Arz Kiya Hai. Aane Wale Aate Hai, Jaane Wale Jaate Hai. Yaade Bas Unki Reh Jaati Hai, Jo G**Nd Sujaa Ke Jaate Hai`",
@@ -478,7 +478,7 @@ ABUSEHARD_STRING = [
 	"`Taare hai Asmaan me very very bright jaat na jla bskd dekh le apni hight.`",
         "`Zindagi ki na toote lari iski lulli hoti nhi khadi`",
         "`Kbhi kbhi meri dil me khyaal ata hai ayse chutiyo ko kon paida kr jata hai😂.`",
-        "`Saawan ka mahina pawan kare shor jake gand mara bskd kahi aur.`", 
+        "`Saawan ka mahina pawan kare shor jake gand mara bskd kahi aur.`",
         "`Dil ke armaa ansuon me beh jaye tum bskd ke chutiye hi reh gye.`",
         "`Ishq Se Tabiyat Ne Zeest Ka Mazaa aya maine is lodu ko randi khane me paya.`",
         "`Mirza galib ki yeh khani hai tu bhosdika hai yeh sab ki jubani hai.`",
@@ -626,6 +626,32 @@ ITEMS = [
     "piece of rotten meat",
     "bear",
     "ton of bricks",
+]
+
+IWIS = [
+    "┐(´д｀)┌",
+    "┐(´～｀)┌",
+    "┐(´ー｀)┌",
+    "┐(￣ヘ￣)┌",
+    "╮(╯∀╰)╭",
+    "╮(╯_╰)╭",
+    "┐(´д`)┌",
+    "┐(´∀｀)┌",
+    "ʅ(́◡◝)ʃ",
+    "┐(ﾟ～ﾟ)┌",
+    "┐('д')┌",
+    "┐(‘～`;)┌",
+    "ヘ(´－｀;)ヘ",
+    "┐( -“-)┌",
+    "ʅ（´◔౪◔）ʃ",
+    "ヽ(゜～゜o)ノ",
+    "ヽ(~～~ )ノ",
+    "┐(~ー~;)┌",
+    "┐(-。ー;)┌",
+    r"¯\_(ツ)_/¯",
+    r"¯\_(⊙_ʖ⊙)_/¯",
+    r"¯\_༼ ಥ ‿ ಥ ༽_/¯",
+    "乁( ⁰͡  Ĺ̯ ⁰͡ ) ㄏ",
 ]
 
 THROW = [
@@ -780,6 +806,25 @@ async def lol(lel):
             okay = okay[:-1] + "_-"
             await lel.edit(okay)
 
+@register(outgoing=True, pattern="^.iwi(?: |$)(.*)")
+async def faces(siwis):
+    """ IwI """
+    textx = await siwis.get_reply_message()
+    message = siwis.pattern_match.group(1)
+    if message:
+        pass
+    elif textx:
+        message = textx.text
+    else:
+        await siwis.edit("` IwI no text given! `")
+        return
+
+    reply_text = sub(r"(a|i|u|e|o)", "i", message)
+    reply_text = sub(r"(A|I|U|E|O)", "I", reply_text)
+    reply_text = sub(r"\!+", " " + choice(IWIS), reply_text)
+    reply_text += " " + choice(IWIS)
+    await siwis.edit(reply_text)
+
 @register(outgoing=True, pattern="^.decide$")
 async def _(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
@@ -878,13 +923,13 @@ async def vapor(vpr):
 
         await vpr.edit("".join(reply_text))
 
-			  
+
 @register(outgoing=True, pattern="^.repo$")
 async def source(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
         await e.edit("Click [here](https://github.com/Dark-Princ3/X-tra-Telegram) to open this lit af repo.")
-			  
-			  
+
+
 @register(outgoing=True, pattern="^.str(?: |$)(.*)")
 async def stretch(stret):
     """ Stretch it."""
@@ -954,7 +999,7 @@ async def hoi(hello):
     """ Greet everyone! """
     if not hello.text[0].isalpha() and hello.text[0] not in ("/", "#", "@", "!"):
         await hello.edit(random.choice(HELLOSTR))
-			  
+
 @register(outgoing=True, pattern="^.kill$")
 async def killing (killed):
     """ Dont Kill Too much -_-"""
@@ -964,7 +1009,7 @@ async def killing (killed):
                 "`Targeted user killed by Headshot 😈......`\n"
 		"#Sad_Reacts_Onli\n"
             )
-			  
+
 @register(outgoing=True, pattern="^.bt$")
 async def bluetext(bte):
     """ Believe me, you will find this useful. """
@@ -974,7 +1019,7 @@ async def bluetext(bte):
                 "`BLUETEXT MUST CLICK.`\n"
                 "`Are you a stupid animal which is attracted to colours?`"
             )
-			  
+
 @register(outgoing=True, pattern="^.rape$")
 async def raping (raped):
     """ Dont Rape Too much -_-"""
@@ -982,7 +1027,7 @@ async def raping (raped):
         index = random.randint(0, len(RAPE_STRINGS) - 1)
         reply_text = RAPE_STRINGS[index]
         await raped.edit(reply_text)
-			  
+
 @register(outgoing=True, pattern="^.pro$")
 async def proo (pros):
     """ String for Pros only -_-"""
@@ -1006,15 +1051,15 @@ async def chutiya (chus):
         index = random.randint(0, len(CHU_STRINGS) - 1)
         reply_text = CHU_STRINGS[index]
         await chus.edit(reply_text)
-			  			  
+
 @register(outgoing=True, pattern="^.thanos$")
 async def thanos (thanos):
     """ String for thanos only -_-"""
     if not thanos.text[0].isalpha() and thanos.text[0] not in ("/", "#", "@", "!"):
         index = random.randint(0, len(THANOS_STRINGS) - 1)
         reply_text = THANOS_STRINGS[index]
-        await thanos.edit(reply_text)	
-			  
+        await thanos.edit(reply_text)
+
 @register(outgoing=True, pattern="^.abusehard$")
 async def fuckedd (abusehard):
     """ Dont Use this Too much bsdk -_-"""
@@ -1022,8 +1067,8 @@ async def fuckedd (abusehard):
         index = random.randint(0, len(ABUSEHARD_STRING) - 1)
         reply_text = ABUSEHARD_STRING[index]
         await abusehard.edit(reply_text)
-			  
-			  
+
+
 @register(outgoing=True, pattern="^.gey$")
 async def geys (geyed):
     """ Use only for gey ppl -_-"""
@@ -1031,8 +1076,8 @@ async def geys (geyed):
         index = random.randint(0, len(GEY_STRINGS) - 1)
         reply_text = GEY_STRINGS[index]
         await geyed.edit(reply_text)
-			  
-			  
+
+
 @register(outgoing=True, pattern="^.abuse$")
 async def abusing (abused):
     """ Dont Abuse Too much bsdk -_-"""
@@ -1091,13 +1136,13 @@ async def metoo(hahayes):
     """ Haha yes """
     if not hahayes.text[0].isalpha() and hahayes.text[0] not in ("/", "#", "@", "!"):
         await hahayes.edit(random.choice(NOOBSTR))
-			  
+
 @register(outgoing=True, pattern="^.rendi$")
 async def metoo(hahayes):
     """ Haha yes """
     if not hahayes.text[0].isalpha() and hahayes.text[0] not in ("/", "#", "@", "!"):
         await hahayes.edit(random.choice(RENDISTR))
-			 			  
+
 @register(outgoing=True, pattern="^.oof$")
 async def Oof(e):
     if not e.text[0].isalpha() and e.text[0] not in ("/", "#", "@", "!"):
@@ -1309,7 +1354,7 @@ async def download_video(v_url):
         os.remove(f"{safe_filename(video.title)}.mp4")
         os.remove('thumbnail.jpg')
         await v_url.delete()
-			  
+
 @register(pattern='.type(?: |$)(.*)')
 async def typewriter(typew):
     """ Just a small command to make your keyboard become a typewriter! """
