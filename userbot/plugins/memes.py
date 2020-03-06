@@ -1081,10 +1081,10 @@ async def faces(siwis):
             await siwis.edit("` IwI no text given! `")
             return
 
-        reply_text = sub(r"(a|i|u|e|o)", "i", message)
-        reply_text = sub(r"(A|I|U|E|O)", "I", reply_text)
-        reply_text = sub(r"\!+", " " + choice(IWIS), reply_text)
-        reply_text += " " + choice(IWIS)
+        reply_text = re.sub(r"(a|i|u|e|o)", "i", message)
+        reply_text = re.sub(r"(A|I|U|E|O)", "I", reply_text)
+        reply_text = re.sub(r"\!+", " " + random.choice(IWIS), reply_text)
+        reply_text += " " + random.choice(IWIS)
         await siwis.edit(reply_text)
 
 @register(outgoing=True, pattern="^.owo(?: |$)(.*)")
