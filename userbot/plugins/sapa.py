@@ -6,8 +6,8 @@ from telethon.events import ChatAction
 @bot.on(ChatAction)
 async def welcome_to_chat(event):
     try:
-        from userbot.plugins.sql_helper.welcome_sql import get_current_welcome_settings
-        from userbot.plugins.sql_helper.welcome_sql import update_previous_welcome
+        from userbot.plugins.sql_helper.sapa_sql import get_current_welcome_settings
+        from userbot.plugins.sql_helper.sapa_sql import update_previous_welcome
     except AttributeError:
         return
     cws = get_current_welcome_settings(event.chat_id)
