@@ -20,20 +20,20 @@ class Sapa(BASE):
         self.f_mesg_id = f_mesg_id
 
 
-Welcome.__table__.create(checkfirst=True)
+Sapa.__table__.create(checkfirst=True)
 
 
 def get_welcome(chat_id):
     try:
-        return SESSION.query(Welcome).get(str(chat_id))
+        return SESSION.query(Sapa).get(str(chat_id))
     finally:
         SESSION.close()
 
 
 def get_current_welcome_settings(chat_id):
     try:
-        return SESSION.query(Welcome).filter(
-            Welcome.chat_id == str(chat_id)).one()
+        return SESSION.query(Sapa).filter(
+            Sapa.chat_id == str(chat_id)).one()
     except BaseException:
         return None
     finally:
@@ -43,7 +43,7 @@ def get_current_welcome_settings(chat_id):
 def add_welcome_setting(chat_id, previous_welcome, reply, f_mesg_id):
     to_check = get_welcome(chat_id)
     if not to_check:
-        adder = Welcome(chat_id, previous_welcome, reply, f_mesg_id)
+        adder = Sapa(chat_id, previous_welcome, reply, f_mesg_id)
         SESSION.add(adder)
         SESSION.commit()
         return True
@@ -51,14 +51,14 @@ def add_welcome_setting(chat_id, previous_welcome, reply, f_mesg_id):
         rem = SESSION.query(Welcome).get(str(chat_id))
         SESSION.delete(rem)
         SESSION.commit()
-        adder = Welcome(chat_id, previous_welcome, reply, f_mesg_id)
+        adder = Sapa(chat_id, previous_welcome, reply, f_mesg_id)
         SESSION.commit()
         return False
 
 
 def rm_welcome_setting(chat_id):
     try:
-        rem = SESSION.query(Welcome).get(str(chat_id))
+        rem = SESSION.query(Sapa).get(str(chat_id))
         if rem:
             SESSION.delete(rem)
             SESSION.commit()
@@ -68,6 +68,6 @@ def rm_welcome_setting(chat_id):
 
 
 def update_previous_welcome(chat_id, previous_welcome):
-    row = SESSION.query(Welcome).get(str(chat_id))
+    row = SESSION.query(Sapa).get(str(chat_id))
     row.previous_welcome = previous_welcome
     SESSION.commit()
