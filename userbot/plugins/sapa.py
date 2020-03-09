@@ -3,7 +3,7 @@ from userbot import CMD_HELP, bot, LOGS, CLEAN_WELCOME, BOTLOG_CHATID
 from telethon.events import ChatAction
 
 
-@bot.on(events.ChatAction())
+@bot.on(ChatAction)
 async def welcome_to_chat(event):
     try:
         from userbot.plugins.sql_helper.welcome_sql import get_current_welcome_settings
