@@ -87,6 +87,7 @@ if bool(ENV):
 
     # OpenWeatherMap API Key
     OPEN_WEATHER_MAP_APPID = os.environ.get("OPEN_WEATHER_MAP_APPID", None)
+    WEATHER_DEFCITY = os.environ.get("WEATHER_DEFCITY", None)
 
     # Anti Spambot Config
     ANTI_SPAMBOT = sb(os.environ.get("ANTI_SPAMBOT", "False"))
@@ -98,7 +99,7 @@ if bool(ENV):
 
     # Default .alive name
     ALIVE_NAME = os.environ.get("ALIVE_NAME", None)
-    
+
     LESS_SPAMMY = os.environ.get("LESS_SPAMMY", True)
 
     # Time & Date - Country and Time Zone
@@ -163,4 +164,3 @@ CMD_HELP = {}
 ISAFK = False
 AFKREASON = None
 # End of PaperPlaneExtended Support Vars
-
