@@ -186,7 +186,7 @@ if 1 == 1:
             sticker.name = "sticker.webp"
             sticker.seek(0)
             try:
-                await reply.reply(file=sticker)
+                await message.respond(file=sticker)
             except telethon.errors.rpcerrorlist.ChatSendStickersForbiddenError:
                 await message.respond(strings["cannot_send_stickers"])
             file.close()
