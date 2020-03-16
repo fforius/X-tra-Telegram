@@ -152,19 +152,18 @@ async def carbon_api(e):
 
          file,
 
-         caption="<< Here's your carbon, gey boi! \n Carbonised by @A_Dark_Princ3 >> ",
+         caption="<< Here's your carbon, gey boi! \n Carbonised by Poco bot >> ",
 
-         force_document=True,
+         force_document=False,
 
          reply_to=e.message.reply_to_msg_id,
 
          )
 
-   os.remove('./Anubis.png')
+   os.remove('./poco.png')
 
    driver.quit()
 
    # Removing carbon.png after uploading
 
    await e.delete() # Deleting msg
-   
