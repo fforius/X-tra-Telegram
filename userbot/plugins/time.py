@@ -38,7 +38,6 @@ async def _(event):
         required_file_name,
         caption="Userbot: Powered by @XtraTgBot",
         # Courtesy: @ManueI15
-        reply_to=reply_msg_id
     )
     os.remove(required_file_name)
     end = datetime.now()
