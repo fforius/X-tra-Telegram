@@ -21,6 +21,10 @@ async def sticklet(event):
     # the text on which we would like to do the magic on
     sticktext = event.pattern_match.group(1)
 
+    if not sticktext:
+    	get = await event.get_reply_message()
+    	sticktext = get.text
+
     # delete the userbot command,
     # i don't know why this is required
     await event.delete()
