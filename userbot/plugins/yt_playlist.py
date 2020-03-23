@@ -27,7 +27,6 @@ from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from telethon.tl.types import DocumentAttributeAudio
 from uniborg.util import admin_cmd
-from sample_config import Config
 import shutil
 import wget
 
@@ -107,7 +106,7 @@ async def download_video(v_url):
         url = re.findall(r'\bhttps?://.*\.\S+', reply.message)[0]
     else:
         return
-    type = v_url.pattern_match.group(1).lower() if v_url.pattern_match.group(1) is not None else "a" 
+    type = v_url.pattern_match.group(1).lower() if v_url.pattern_match.group(1) is not None else "a"
     await v_url.edit("`Preparing to download...`")
     out_folder = Config.TMP_DOWNLOAD_DIRECTORY + "youtubedl/"
     thumb_image_path = Config.TMP_DOWNLOAD_DIRECTORY + "/thumb_image.jpg"
@@ -149,10 +148,10 @@ async def download_video(v_url):
             'prefer_ffmpeg':True,
             'geo_bypass':True,
             'nocheckcertificate':True,
-            'postprocessors': 
+            'postprocessors':
             [{
                 'key': 'FFmpegVideoConvertor',
-                'preferedformat': 'mp4'},               
+                'preferedformat': 'mp4'},
             ],
             'outtmpl':out_folder + '%(title)s.%(ext)s',
             'logtostderr':False,
@@ -313,7 +312,7 @@ async def download_video(v_url):
                     await asyncio.sleep(DELETE_TIMEOUT)
                     # await v_url.delete()
         shutil.rmtree(out_folder)
-        
+
 
 
 
