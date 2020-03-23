@@ -49,5 +49,6 @@ sqlalchemy>=1.2
 telegraph
 asyncurban
 urbandict
+wget
 wikipedia>=1.4.0
 youtube-dl
