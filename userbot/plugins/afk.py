@@ -119,11 +119,11 @@ async def on_afk(event):
                     wday = now + datetime.timedelta(days=-days)
                     afk_since = wday.strftime('%A')
             elif hours > 1:
-                afk_since = f"`{int(hours)} h {int(minutes)} m` **ago**"
+                afk_since = f"`{int(hours)}h{int(minutes)}m` **ago**" 
             elif minutes > 0:
-                afk_since = f"`{int(minutes)} m {int(seconds)} s` **ago**"
+                afk_since = f"`{int(minutes)}m{int(seconds)}s` **ago**"
             else:
-                afk_since = f"`{int(seconds)} s` **ago**"
+                afk_since = f"`{int(seconds)}s` **ago**"
         msg = None
         message_to_reply = f"My Master Has Been Gone For {afk_since}\nWhere He Is: ONLY GOD KNOWS " + \
             f"\n\n__I promise I'll back in a few hours__\n**REASON**: {reason}" \
