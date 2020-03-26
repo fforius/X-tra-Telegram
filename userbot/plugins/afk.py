@@ -5,6 +5,10 @@ import datetime
 from telethon import events
 from telethon.tl import functions, types
 
+from sample_config import Config
+import logging
+logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
+                    level=logging.WARNING)
 
 global USER_AFK  # pylint:disable=E0602
 global afk_time  # pylint:disable=E0602
@@ -48,7 +52,7 @@ async def _(event):
     global last_afk_message  # pylint:disable=E0602
     global reason
     USER_AFK = {}
-    afk_time = None
+    afk_time = datetime.datetime.now()
     last_afk_message = {}
     reason = event.pattern_match.group(1)
     if not USER_AFK:  # pylint:disable=E0602
@@ -93,6 +97,7 @@ async def on_afk(event):
         return False
     if USER_AFK and not (await event.get_sender()).bot:  # pylint:disable=E0602
         if afk_time:  # pylint:disable=E0602
+            afk_since = ""
             now = datetime.datetime.now()
             datime_since_afk = now - afk_time  # pylint:disable=E0602
             time = float(datime_since_afk.seconds)
@@ -115,11 +120,11 @@ async def on_afk(event):
                     wday = now + datetime.timedelta(days=-days)
                     afk_since = wday.strftime('%A')
             elif hours > 1:
-                afk_since = f"`{int(hours)}h{int(minutes)}m` **ago**"
+                afk_since = f"`{int(hours)} h {int(minutes)} m` **ago**"
             elif minutes > 0:
-                afk_since = f"`{int(minutes)}m{int(seconds)}s` **ago**"
+                afk_since = f"`{int(minutes)} m {int(seconds)} s` **ago**"
             else:
-                afk_since = f"`{int(seconds)}s` **ago**"
+                afk_since = f"`{int(seconds)} s` **ago**"
         msg = None
         message_to_reply = f"My Master Has Been Gone For {afk_since}\nWhere He Is: ONLY GOD KNOWS " + \
             f"\n\n__I promise I'll back in a few hours__\n**REASON**: {reason}" \
