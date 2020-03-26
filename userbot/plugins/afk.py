@@ -64,7 +64,7 @@ async def _(event):
             afk_time = datetime.datetime.now()  # pylint:disable=E0602
         USER_AFK = f"yes: {reason}"  # pylint:disable=E0602
         if reason:
-            await event.edit(f"`Gw AFK dulu ya cuk, mau {reason}")
+            await event.edit(f"`Gw AFK dulu ya cuk, mau {reason} `")
         else:
             await event.edit(f"`I am afk`")
         await asyncio.sleep(5)
