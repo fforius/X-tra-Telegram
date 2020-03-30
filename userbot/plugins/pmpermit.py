@@ -66,9 +66,9 @@ if Var.PRIVATE_GROUP_ID is not None:
         if len(approved_users) > 0:
             for a_user in approved_users:
                 if a_user.reason:
-                    APPROVED_PMs += f"👉 [{a_user.chat_id}](tg://user?id={a_user.chat_id}) for {a_user.reason}\n"
+                    APPROVED_PMs += f"👉 <a href=\"tg://user?id={a_user.chat_id}\">{a_user.chat_id}</a> for {a_user.reason}\n"
                 else:
-                    APPROVED_PMs += f"👉 [{a_user.chat_id}](tg://user?id={a_user.chat_id})\n"
+                    APPROVED_PMs += f"👉 <a href=\"tg://user?id={a_user.chat_id}\">{a_user.chat_id}</a>\n"
         else:
             APPROVED_PMs = "no Approved PMs (yet)"
         if len(APPROVED_PMs) > 4095:
@@ -125,7 +125,7 @@ if Var.PRIVATE_GROUP_ID is not None:
             # don't log verified accounts
 
             return
-          
+
         if any([x in event.raw_text for x in ("/start", "1", "2", "3", "4", "5")]):
             return
 
