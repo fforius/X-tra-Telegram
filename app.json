@@ -94,6 +94,65 @@
       "value": "",
       "required": false
     },
+    "ANTI_SPAMBOT": {
+      "description": "Kicks spambots from groups after they join. [Requires admin powers in groups to kick.]",
+      "value": "False"
+    },
+    "ANTI_SPAMBOT_SHOUT": {
+      "description": "Report spambots to @admins in groups after they join, just in case when you don't have admin powers to kick that shit yourself.",
+      "value": "False"
+    },
+    "BOTLOG": {
+      "description": "Incase you want to turn off logging, put this to false",
+      "value": "False"
+    },
+    "BOTLOG_CHATID": {
+      "description": "ChatID of the Log group. Set it to '0' if BOTLOG = False and/or if LOGSPAMMER = False.",
+      "value": "0"
+    },
+    "OCR_SPACE_API_KEY": {
+      "description": "OCR API Key for .ocr command. Get from https://ocr.space/ocrapi",
+      "required": false
+    },
+    "OPEN_WEATHER_MAP_APPID": {
+      "description": "Get your own APPID (API key)from https://api.openweathermap.org/data/2.5/weather",
+      "required": false
+    },
+    "WEATHER_DEFCITY": {
+      "description": "Set the default city for the userbot's weather module.",
+      "required": false
+    },
+    "PRIVATE_GROUP_BOT_API_ID": {
+      "description": "Send .g_id in any group to fill this value.",
+      "value": "-100",
+      "required": false
+    },
+    "PRIVATE_GROUP_BOT_ID": {
+      "description": "Send .g_id in any group to fill this value.",
+      "value": "-100",
+      "required": false
+    },
+    "PRIVATE_GROUP_ID": {
+      "description": "Send .g_id in any group to fill this value.",
+      "value": "-100",
+      "required": false
+    },
+    "REM_BG_API_KEY": {
+      "description": "API Key for .rbg command. Get from https://www.remove.bg/api",
+      "required": false
+    },
+    "PM_AUTO_BAN": {
+      "description": "PM Auto-Ban Feature Switch. Also known as the 'bleep blop, this is a bot...' module.",
+      "value": "False"
+    },
+    "SCREEN_SHOT_LAYER_ACCESS_KEY": {
+      "description": "Get your own ACCESS_KEY from http://api.screenshotlayer.com/api/capture",
+      "required": false
+    },
+    "UPSTREAM_REPO_URL": {
+      "description": "In case you maintain a fork, add your repo URL here.",
+      "required": false
+    },
     "TZ": {
       "description": "Required for Correct Time on autopic/get time. Know your timezone from http://www.timezoneconverter.com/cgi-bin/findzone.tzc",
       "value": "",
