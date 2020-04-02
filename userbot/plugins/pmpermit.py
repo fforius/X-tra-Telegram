@@ -41,6 +41,21 @@ if Var.PRIVATE_GROUP_ID is not None:
                 await event.delete()
 
 
+    @bot.on(events.NewMessage(outgoing=True))
+    async def you_dm_niqq(event):
+        if event.fwd_from:
+            return
+        chat = await event.get_chat()
+        if event.is_private:
+            if not pmpermit_sql.is_approved(chat.id):
+                if not chat.id in PM_WARNS:
+                    pmpermit_sql.approve(chat.id, "outgoing")
+                    bruh = "__Added user to approved pms cuz outgoing message >~<__"
+                    rko = await borg.send_message(event.chat_id, bruh)
+                    await asyncio.sleep(3)
+                    await rko.delete()
+
+
     @command(pattern="^.block ?(.*)")
     async def approve_p_m(event):
         if event.fwd_from:
@@ -114,6 +129,7 @@ if Var.PRIVATE_GROUP_ID is not None:
 
             return
 
+
         if sender.bot:
 
             # don't log bots
@@ -136,7 +152,7 @@ if Var.PRIVATE_GROUP_ID is not None:
     async def do_pm_permit_action(chat_id, event):
         if chat_id not in PM_WARNS:
             PM_WARNS.update({chat_id: 0})
-        if PM_WARNS[chat_id] == 5:
+        if PM_WARNS[chat_id] == Config.MAX_FLOOD_IN_P_M_s:
             r = await event.reply(USER_BOT_WARN_ZERO)
             await asyncio.sleep(3)
             await event.client(functions.contacts.BlockRequest(chat_id))
