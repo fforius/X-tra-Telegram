@@ -129,7 +129,7 @@ async def _(event):
                 while response.text == FILLED_UP_DADDY:
                     pack += 1
                     prevv = int(pack) - 1
-                    packname = f"{user.first_name}'s @XtraTgBot Vol.{pack}"
+                    packname = f"{user.first_name}'s Poco bot Vol.{pack}"
                     packshortname = f"Vol._{pack}_with_{userid}"
                     if not await stickerset_exists(bot_conv, packshortname):
                         await event.edit("**Pack No. **" + str(prevv) + "** full! Making a new Pack, Vol. **" + str(pack))
@@ -143,7 +143,7 @@ async def _(event):
                         response = await silently_send_message(bot_conv, packname)
                         if not response.text.startswith("Alright!"):
                             if "unacceptable" in response.text:
-                                packname = f"{user.id}'s @XtraTgBot Vol.{pack}"
+                                packname = f"{user.id}'s Poco Bot Vol.{pack}"
                                 response = await silently_send_message(bot_conv, packname)
                             else:
                                 await event.edit(f"**FAILED**! @Stickers replied: {response.text}")
