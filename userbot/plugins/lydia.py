@@ -22,7 +22,7 @@ import coffeehouse as cf
 
 import asyncio
 import io
-from sql_helpers.lydia_ai_sql import get_s, get_all_s, add_s, remove_s
+from userbot.plugins.sql_helpers.lydia_ai_sql import get_s, get_all_s, add_s, remove_s
 from time import time
 from uniborg.util import admin_cmd
 from sample_config import Config
